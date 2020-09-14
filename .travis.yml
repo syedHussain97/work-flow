@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -6,4 +7,4 @@ before_install:
   - docker build -t syedhusyn/work-flow -f Dockerfile.dev .
 
 script:
-  - docker run syedhusyn/work-flow npm run test -- --coverage
+  - docker run -e CI=true syedhusyn/work-flow npm run test -- --coverage
